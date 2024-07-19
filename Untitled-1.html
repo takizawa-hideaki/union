@@ -1,0 +1,182 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="ja">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="pragma" content="no-cache">
+<title>お知らせ欄メンテナンス</title>
+
+
+<link rel="stylesheet" type="text/css" href="../css/jp/pisystem/common/common.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui-1.10.4.custom.min.css">
+<link rel="stylesheet" type="text/css" href="../css/jp/pisystem/common/jquery-ui-custom.css">
+<script type="text/javascript" src="../js/jp/pisystem/common/jspcommon.js"></script>
+<script type="text/javascript" src="../js/jp/pisystem/common/dialog.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-ui-1.10.4.custom.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/jp/pisystem/search/common/searchDialog.css">
+<link rel="stylesheet" type="text/css" href="../css/jp/pisystem/login/login/menuInfo.css">
+<link rel="stylesheet" type="text/css" href="../css/jp/pisystem/office/system/menuinfo/menuInfo.css">
+<script type="text/javascript" src="../js/jp/pisystem/office/system/menuinfo/menuInfo.js"></script>
+<script type="text/javascript" src="../js/jp/pisystem/office/system/menuinfo/menuInfoPreview.js"></script>
+<script type="text/javascript" src="../js/jp/pisystem/search/searchCommon.js"></script>
+<script type="text/javascript" src="../dwr/interface/MstAjax.js"></script>
+<script type="text/javascript" src="../dwr/engine.js"></script>
+<script type="text/javascript" src="../dwr/util.js"></script>
+</head>
+
+<body id="home">
+<form name="menuInfoFormBean" method="post" action="/unionPlateMulti/menuInfo/menuInfo.do">
+<input type="hidden" name="command" value="">
+<input type="hidden" name="loginItem.gyomudate" value="2021/06/25" id="gyomudate">
+<input type="hidden" name="loginItem.gyomuCorporationCode" value="10" id="gyomuCorporationCode">
+<input type="hidden" name="loginItem.gyomuOfficeFactoryCode" value="1" id="gyomuOfficeFactoryCode">
+
+<input type="hidden" name="mode" value="input" id="mode">
+<input type="hidden" name="shoriCf" value="1" id="shoriCf">
+<input type="hidden" name="webCf" value="0" id="webCf">
+
+
+
+
+
+
+
+<div id="headerDiv">
+	<div id="header">
+		<h1 id="companyName">Union Plate</h1>
+		<p id="systemName">Steel material sales management system</p>
+		<h1 id="title">お知らせ欄メンテナンス</h1>
+		<div id="loginInfo">
+			<span id="loginItem">
+			    ログイン者:
+			    835
+			    トムズイリン
+			  <span class="ml-1">
+			    所属:
+			    株式会社ユニオンプレート
+			</span>
+			<br>
+			<span id="systemDate">
+				本日: 2021/06/25
+			</span>
+
+		</span></div>
+	</div>
+</div>
+
+<div class="main">
+	<!-- ヘッダボタン表示 -->
+	<div id="buttonDiv">
+		<button type="button" id="headButtonRegister" onclick="registerButton_onclick()">
+			登録する
+			
+			
+		</button>
+		<button type="button" id="headButtonBack" onclick="backButton_onclick()">一覧に戻る</button>
+		<button type="button" id="headButtonMenu" onclick="menuButton_onclick()">メニューに戻る</button>
+	</div>
+	<!-- ヘッダーメッセージ -->
+	<div id="messageDiv" class="errorMessage">
+		<span class="headErrMessage"></span>
+	</div>
+
+	<!-- 条件入力部 -->
+	<div id="conditionDiv">
+		<!-- Web区分 -->
+		<div id="webCfLabel" class="caption pageBackColorItem">
+			<label>Web区分</label>
+		</div>
+		<label id="webCfName">
+			officeWeb
+			
+			
+		</label>
+
+		<!-- アカウントグループ -->
+		<div id="accountGroupLabel" class="caption pageBackColorItem">
+			<label>アカウントグループ</label>
+		</div>
+
+		<select name="accountGroup" size="1" id="accountGroup"><option value="ALL">ALL</option>
+<option value="display1">display1</option>
+<option value="factory1">factory1</option>
+<option value="factory10">factory10</option>
+<option value="factory2">factory2</option>
+<option value="factory20">factory20</option>
+<option value="factory3">factory3</option>
+<option value="factory4">factory4</option>
+<option value="futaba_print1">futaba_print1</option>
+<option value="h1">h1</option>
+<option value="h1_hachu">h1_hachu</option>
+<option value="m1">m1</option>
+<option value="manager1">manager1</option>
+<option value="manager2">manager2</option>
+<option value="operator1">operator1</option>
+<option value="suv">suv</option>
+<option value="union_eshop1">union_eshop1</option>
+<option value="union_eshop2">union_eshop2</option>
+<option value="union_eshop3">union_eshop3</option>
+<option value="union_eshop4">union_eshop4</option>
+<option value="union_eshop5">union_eshop5</option>
+<option value="union_eshop6">union_eshop6</option></select>
+		<span id="accountGroupDesc">※代表は"ALL"を選択</span>
+
+
+
+		<!-- 会社営業所 -->
+		<div id="officeFactoryLabel" class="caption pageBackColorItem">
+			<label>会社・営業所</label>
+		</div>
+		<input type="text" name="fullCode" maxlength="5" value="" onkeydown="officeFactoryCode_onkeydown();" id="officeFactoryCode" class="inputNum">
+		<input type="text" name="officeFactoryName" value="" readonly="readonly" id="officeFactoryName" class="textDisable">
+
+		<span id="officeFactoryDesc">※代表は"0"を入力</span>
+
+
+
+
+		<!-- コメント -->
+		<div id="menuInfoCommentLabel" class="caption pageBackColorItem">
+			<label>コメント</label>
+		</div>
+		<input type="text" name="menuInfoComment" value="" id="menuInfoComment" class="inputAlNum">
+
+		<!-- 公開開始・終了日 -->
+		<div id="applyDateLabel" class="caption pageBackColorItem">
+			<label>公開開始・終了日</label>
+		</div>
+		<input type="text" name="startApplyDate" maxlength="10" value="" onblur="startApplyDate_onblur()" onfocus="startApplyDate_onfocus()" id="startApplyDate" class="inputAlNum">
+		<label id="applyDateFromTo">～</label>
+		<input type="text" name="endApplyDate" maxlength="10" value="" onblur="endApplyDate_onblur()" onfocus="endApplyDate_onfocus()" id="endApplyDate" class="inputAlNum">
+	</div>
+
+	<!-- データ入力部 -->
+	<div id="dataDiv">
+		<button type="button" id="previewButton" onclick="popupPreviewDialog('#menuInformation')">プレビュー</button>
+		<textarea name="menuInformation" cols="150" rows="30" id="menuInformation"></textarea>
+	</div>
+
+	
+	
+
+
+<div id="informationPreviewDialog">
+	<!-- 本文 -->
+	<div id="previewPane">
+		<div class="menuInfo" id="informationPreview"></div>
+	</div>
+	<div class="footer">
+		<div id="informationPreviewButton">
+			<button type="button" id="informationPreviewCancel">閉じる</button>
+		</div>
+	</div>
+</div>
+
+</div>
+
+</form>
+
+</body></html>

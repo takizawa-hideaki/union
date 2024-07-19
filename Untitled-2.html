@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>お知らせ | PROFILE</title>
+    <style>
+      h2 {
+        font-family: 'メイリオ', 'Meiryo', sans-serif;
+        font-size: 1.5em;
+        margin-top: 1em;
+      }
+
+      body {
+        font-family: sans-serif; /* Đặt font mặc định cho toàn bộ trang nếu muốn */
+      }
+
+      .text_date {
+        font-size: 0.9em;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        font-size: 2em;
+        margin-bottom: 1em;
+      }
+      .text_content {
+        font-size: 1em;
+        margin-bottom: 3em;
+      }
+      .attention {
+        color: #FF0000;
+      }
+      .blue {
+        color: #0000FF;
+      }
+      footer {
+        margin-top: 2em;
+        font-size: 0.8em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="information">
+      <div class="wrapper">
+        <h1>お知らせ</h1>
+        <article id="part1">
+          <p class="text_date"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2>お知らせ欄の試験運用を開始しました。</h2>
+          <p class="text_content">新販売システムトップページにてお知らせ欄の試験運用を開始しました。<br>当お知らせ欄についてのお問い合わせは、情報システム部までお寄せください。</p>
+        </article>
+        <article id="part2">
+          <p class="text_date" style = "font-family:'メイリオ', 'Meiryo', sans-serif;"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2><span class="blue">＜新機能＞</span>受注・見積変更後のFAXボタン復活しました。</h2>
+          <p class="text_content">運用上の不具合があり使用停止していた再回答用のFAX送信ボタンですが、<br>変更確定画面にて「初回答」「再回答」という形で復活しました。<br>「初回答」では入力確定時と同じ回答書、「再回答」では回答書のタイトルに（再）が付いたものがFAXされます。<br>状況に応じた回答方法にてご利用ください。（但し販社成り代わりの場合や、見積回答保留の場合は誤送信を防ぐため非表示）</p>
+        </article>
+        <article id="part3">
+          <p class="text_date"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2><span class="blue">＜新機能＞</span>エラー修正画面での行追加ができるようになりました。</h2>
+          <p class="text_content">見積エラー修正画面、受注エラー修正、CSV取込エラー修正画面での行追加に対応しました。<br>立替運賃の入力等で行追加が必要な場合、今までは変更画面から行追加が必要でしたが、修正画面からそのまま追加できるようになりました。</p>
+        </article>
+        <article id="part4">
+          <p class="text_date"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2><span class="blue">＜新機能＞</span>エラー修正画面でスポットフラグ変更できるようになりました。</h2>
+          <p class="text_content">双葉受注エラー修正、新光エラー修正、受注エラー修正、CSV取込エラー修正画面でのスポットの登録、解除機能を追加しました。</p>
+        </article>
+        <article id="part5">
+          <p class="text_date"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2><span class="attention">＜要注意！＞</span>単価計算時に除外工場警告メッセージが表示されるようになりました。</h2>
+          <p class="text_content">得意先、届先マスタの振分除外工場が明細加工工場に指定されていた場合、警告メッセージを表示します。<br>販社成り代わりの場合も警告メッセージが表示されます。</p>
+        </article>
+        <article id="part6">
+          <p class="text_date"><time datetime="2024-06-11">2024.06.11</time></p>
+          <h2><span class="blue">＜新機能＞</span>見積回答保留機能が追加されました。</h2>
+          <p class="text_content">見積画面のヘッダー部に「回答保留チェック」を設けました。これが立った見積データは以下の制限が掛かります。<br>・eshop側で照会、見積書要求しても呼び出せません。<br>・販売側で誤配対策として見積変更で回答FAXボタン、再回答FAXボタンが表示されません。<br>・見積書印刷画面で「FAX送信」の時、送信対象データに回答保留データが含まれているとエラーになります。</p>
+        </article>
+      </div>
+    </main>
+    <footer id="footer">
+      <p>Copyright&copy;2024 UNIONPLATE.</p>
+    </footer>
+  </body>
+</html>

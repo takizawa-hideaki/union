@@ -1,0 +1,43 @@
+/* static/styles.css */
+.products-container {
+    display: flex; /* Sử dụng flexbox */
+    flex-wrap: wrap; /* Cho phép các sản phẩm xuống dòng khi không đủ không gian */
+    justify-content: center; /* Canh các sản phẩm sao cho chúng nằm cách đều nhau trên hàng */
+    
+}
+
+.product {
+    width: calc(); /* Đặt kích thước của mỗi sản phẩm là 1/3 chiều rộng của container, trừ đi khoảng cách giữa các sản phẩm */
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.product img {
+    max-width: 30%;
+    height: auto; /* Đảm bảo tỷ lệ khung hình của hình ảnh được duy trì */
+}
+
+.product h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.product p {
+    margin: 0;
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src:  /* Đường dẫn đến font Netflix Sans Bold */
+         url('/static/font/Roboto/Roboto-Black.ttf') format('opentype'); /* Đường dẫn đến font Netflix Sans Light */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Sử dụng font Netflix Sans */
+}
+

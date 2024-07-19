@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+</head>
+<body>
+    <h1>Customer Management</h1>
+    <form id="customer-form">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="phone" placeholder="Phone">
+        <textarea id="address" placeholder="Address"></textarea>
+        <button type="submit">Add Customer</button>
+    </form>
+    <div id="customers"></div>
+
+    <script>
+        document.getElementById('customer-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+
+            fetch('/customers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, phone, address })
+            }).then(response => response.json()).then(data => {
+                alert(data.message);
+                loadCustomers();
+            });
+        });
+
+        function loadCustomers() {
+            fetch('/customers').then(response => response.json()).then(data => {
+                const customersDiv = document.getElementById('customers');
+                customersDiv.innerHTML = '';
+                data.forEach(customer => {
+                    customersDiv.innerHTML += `<p>${customer.name} - ${customer.email}</p>`;
+                });
+            });
+        }
+
+        loadCustomers();
+    </script>
+</body>
+</html>
