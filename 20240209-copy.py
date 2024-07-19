@@ -3,6 +3,7 @@
 ###ver 0.0.3 :取込ｃｓｖファイル、logファイル月事に別れる----
 ###ver 0.0.4: cybozuにlogファイルのデータを自動コメント機能追加
 
+###テストで書き込んでいます！！
 
 import pandas as pd
 from sqlalchemy import create_engine
